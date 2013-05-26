@@ -98,9 +98,8 @@ const prog_int8_t Sinewave[N_WAVE-N_WAVE/4] PROGMEM = {
 */
 inline char FIX_MPY(char a, char b)
 {
-  
-  //Serial.println(a);
- //Serial.println(b);
+//Serial.println(a);
+//Serial.println(b);
   
   
     /* shift right one less bit (i.e. 15-1) */
@@ -109,12 +108,6 @@ inline char FIX_MPY(char a, char b)
     b = c & 0x01;
     /* last shift + rounding bit */
     a = (c >> 1) + b;
-
-        
-        Serial.println(Sinewave[3]);
-        Serial.println(c);
-        Serial.println(a);
-        while(1);
 
     return a;
 }
