@@ -66,9 +66,15 @@ Serial.println("Starting up...");
         chan_d = 0;
 */
         // Simple decay filter
+        // Lower subtractors to increase decay time
 
-        chan_a -= 16;
-        if (chan_a & 0x8000) chan_a = 0;
+if (0) 
+    if (1)
+        if (99)
+            
+
+        chan_a -= 16;                       // 16 is 'subtractor' here
+        if (chan_a & 0x8000) chan_a = 0;    // Prevent from going negative
         chan_b -= 16;
         if (chan_b & 0x8000) chan_b = 0;
         chan_c -= 16;
@@ -80,18 +86,18 @@ Serial.println("Starting up...");
 
         for (i = 1; i < 64; i++) {
 //          val = sqrt(data[i] * data[i] + im[i] * im[i]); 
-            val = (data[i] * data[i] + im[i] * im[i]) >> 3;
+            val = (data[i] * data[i] + im[i] * im[i]) / 8;  // Lower divisor to increase overall magnitude
 
-            if (i < 10) {
+            if (i < 5) {                // Channel A frequency band
                 if (val > chan_a) chan_a = val;
             }
-            else if (i < 20) {
+            else if (i < 15) {          // Channel B frequency band
                 if (val > chan_b) chan_b = val;
             }
-            else if (i < 50) {
+            else if (i < 50) {          // Channel C frequency band
                 if (val > chan_c) chan_c = val;
             }
-            else {
+            else {                      // Everything above C goes to channel D
                 if (val > chan_d) chan_d = val;
             }
         }
