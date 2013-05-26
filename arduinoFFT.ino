@@ -2,9 +2,9 @@
 
 static const int redPin = 10;
 static const int yellowPin = 9;
-static const int greenPin = 12;
-static const int bluePin = 14;
-static const int pin_adc = 19;
+static const int greenPin = 5;
+static const int bluePin = 4;
+static const int pin_adc = 21;
 
 char im[128];
 char data[128]; 
@@ -73,10 +73,10 @@ void loop(){
           if (i >= 48) {
             chanD = chanD + data[i];
           }
-          chanA = chanA / 16;
-          chanB = chanB / 16;
-          chanC = chanC / 16;
-          chanD = chanD / 16;
+          chanA = chanA ;
+          chanB = chanB ;
+          chanC = chanC ;
+          chanD = chanD ;
           setPin(redPin, chanA);
           setPin(yellowPin, chanB);
           setPin(greenPin, chanC);

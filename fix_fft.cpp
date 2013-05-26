@@ -110,11 +110,11 @@ inline char FIX_MPY(char a, char b)
     /* last shift + rounding bit */
     a = (c >> 1) + b;
 
-        /*
+        
         Serial.println(Sinewave[3]);
         Serial.println(c);
         Serial.println(a);
-        while(1);*/
+        while(1);
 
     return a;
 }
